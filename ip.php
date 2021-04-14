@@ -19,7 +19,7 @@ $browser = $_SERVER['HTTP_USER_AGENT'];
 $file = 'ip.txt';
 $victim = "IP: ";
 $fp = fopen($file, 'a');
-
+echo "hello";
 fwrite($fp, $victim);
 fwrite($fp, $ipaddress);
 fwrite($fp, $useragent);
